@@ -5,6 +5,7 @@ import cssnano from "cssnano"
 import sveltePreprocess from "svelte-preprocess"
 import tailwindcss from "tailwindcss"
 import { defineConfig } from "vite"
+import viteCompression from "vite-plugin-compression"
 import { viteSingleFile } from "vite-plugin-singlefile"
 
 export default defineConfig({
@@ -29,6 +30,10 @@ export default defineConfig({
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true,
       },
+    }),
+    viteCompression({
+      algorithm: "brotliCompress",
+      deleteOriginFile: true,
     }),
   ],
   css: {
