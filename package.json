@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "svelte-check --tsconfig ./tsconfig.json && eslint --ext \".ts,.svelte\" --ignore-path .gitignore . && stylelint \"**/*.{svelte,scss}\" --ignore-path .gitignore",
-    "format": "eslint --ext \".ts,.svelte\" --ignore-path .gitignore --fix . && stylelint \"**/*.{svelte,scss}\" --ignore-path .gitignore --fix"
+    "lint": "svelte-check --tsconfig ./tsconfig.json && eslint --ext \".ts,.svelte\" --max-warnings 0 --ignore-path .gitignore . && stylelint --ignore-path .gitignore \"**/*.{svelte,scss}\"",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,svelte,scss}\" && eslint --ext \".ts,.svelte\" --max-warnings 0 --ignore-path .gitignore --fix . && stylelint --ignore-path .gitignore --fix \"**/*.{svelte,scss}\""
   },
   "devDependencies": {
     "@sergeymakinen/vite-plugin-html-minimize": "^1.0.6",

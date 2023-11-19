@@ -1,8 +1,8 @@
-const defaultTheme = require("tailwindcss/defaultTheme")
-const colors = require("tailwindcss/colors")
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: ["./index.html", "./src/**/*.{svelte,ts}"],
+  content: ["./index.html", "./**/*.{svelte,ts}"],
   darkMode: "class",
   theme: {
     extend: {
@@ -24,5 +24,6 @@ module.exports = {
   variants: {
     extend: {},
   },
+  safelist: [],
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography"), require("@tailwindcss/aspect-ratio")],
-}
+};
