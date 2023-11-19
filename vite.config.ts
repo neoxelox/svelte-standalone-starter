@@ -2,6 +2,7 @@ import htmlMinimize from "@sergeymakinen/vite-plugin-html-minimize"
 import { svelte } from "@sveltejs/vite-plugin-svelte"
 import autoprefixer from "autoprefixer"
 import cssnano from "cssnano"
+import { visualizer } from "rollup-plugin-visualizer"
 import sveltePreprocess from "svelte-preprocess"
 import tailwindcss from "tailwindcss"
 import { defineConfig } from "vite"
@@ -37,10 +38,14 @@ export default defineConfig({
       algorithm: "brotliCompress",
       deleteOriginFile: true,
     }),
+    visualizer({ brotliSize: true, open: true }),
   ],
   css: {
     postcss: {
       plugins: [tailwindcss(), autoprefixer(), cssnano()],
     },
+  },
+  preview: {
+    open: "/index.html.br",
   },
 })
